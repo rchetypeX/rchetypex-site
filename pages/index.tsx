@@ -58,7 +58,7 @@ export default function Home() {
     <>
       <Head>
         <title>&lt;@&gt;rchetypeX — make progress playable</title>
-        <meta name="description" content="&lt;@&gt;rchetypeX — make progress playable." />
+        <meta name="description" content="&lt;@&gt;rchetypeX | make progress playable." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta property="og:title" content="&lt;@&gt;rchetypeX — make progress playable" />
@@ -102,8 +102,8 @@ export default function Home() {
               <Image
                 src="/logo.svg"
                 alt="&lt;@&gt;rchetypeX logo"
-                width={128}
-                height={128}
+                width={256}
+                height={256}
                 priority
                 className="logo"
               />
@@ -112,7 +112,7 @@ export default function Home() {
                          <h1 className="brand-lockup">
                {isClient ? (
                  <FuzzyText
-                   fontSize="2.5rem"
+                   fontSize="5rem"
                    fontWeight={400}
                    fontFamily="'Tilt Warp', cursive"
                    color="#9FE6A0"
@@ -130,7 +130,7 @@ export default function Home() {
                          <p className="tagline">
                {isClient ? (
                  <TextType
-                   text="make progress playable_"
+                   text="make progress playable"
                    typingSpeed={75}
                    pauseDuration={3000}
                    showCursor={true}
@@ -140,7 +140,7 @@ export default function Home() {
                    loop={false}
                  />
                ) : (
-                 <span>make progress playable_</span>
+                 <span>make progress playable</span>
                )}
              </p>
             
@@ -179,6 +179,8 @@ export default function Home() {
           color: #C8FFB8;
           font-family: 'Sixtyfour', monospace;
           overflow-x: hidden;
+          border: none;
+          outline: none;
         }
 
         .crt {
@@ -189,6 +191,8 @@ export default function Home() {
           padding: 1rem;
           position: relative;
           background: #000;
+          border: none;
+          outline: none;
         }
 
         .scanlines {
@@ -315,6 +319,28 @@ export default function Home() {
             brightness(1.5)
             contrast(1.2)
             hue-rotate(0deg);
+          animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+          0% {
+            filter: 
+              drop-shadow(0 0 8px rgba(140, 255, 160, 0.8))
+              drop-shadow(0 0 16px rgba(140, 255, 160, 0.6))
+              drop-shadow(0 0 24px rgba(140, 255, 160, 0.4))
+              brightness(1.5)
+              contrast(1.2)
+              hue-rotate(0deg);
+          }
+          100% {
+            filter: 
+              drop-shadow(0 0 12px rgba(140, 255, 160, 1))
+              drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
+              drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
+              brightness(1.8)
+              contrast(1.3)
+              hue-rotate(0deg);
+          }
         }
 
         .brand-lockup {
@@ -357,6 +383,8 @@ export default function Home() {
             0 0 8px rgba(140, 255, 160, 0.3),
             0 0 16px rgba(140, 255, 160, 0.1);
           filter: contrast(1.05);
+          white-space: nowrap;
+          overflow: hidden;
         }
 
         .text-type {
@@ -389,8 +417,8 @@ export default function Home() {
         .socials {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 0.75rem;
-          max-width: 360px;
+          gap: 1rem;
+          max-width: 300px;
           margin: 0 auto;
         }
 
@@ -422,6 +450,28 @@ export default function Home() {
             brightness(1.5)
             contrast(1.2)
             hue-rotate(0deg);
+          animation: iconGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes iconGlow {
+          0% {
+            filter: 
+              drop-shadow(0 0 8px rgba(140, 255, 160, 0.8))
+              drop-shadow(0 0 16px rgba(140, 255, 160, 0.6))
+              drop-shadow(0 0 24px rgba(140, 255, 160, 0.4))
+              brightness(1.5)
+              contrast(1.2)
+              hue-rotate(0deg);
+          }
+          100% {
+            filter: 
+              drop-shadow(0 0 12px rgba(140, 255, 160, 1))
+              drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
+              drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
+              brightness(1.8)
+              contrast(1.3)
+              hue-rotate(0deg);
+          }
         }
 
         @keyframes flicker {
@@ -513,12 +563,18 @@ export default function Home() {
           .cursor {
             animation: none;
           }
+          .logo {
+            animation: none;
+          }
+          .icon-image {
+            animation: none;
+          }
         }
 
         @media (min-width: 480px) {
           .socials {
             grid-template-columns: repeat(5, 1fr);
-            max-width: none;
+            max-width: 400px;
           }
           
           .brand-lockup {

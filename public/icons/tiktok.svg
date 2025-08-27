@@ -1,0 +1,24 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tt-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C8FFB8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9FE6A0;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="24" height="24" fill="none"/>
+  
+  <!-- TikTok musical note -->
+  <path d="M9 12a3 3 0 1 0 3 3V9a6 6 0 0 0 6 6" 
+        fill="none" 
+        stroke="url(#tt-glow)" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        filter="drop-shadow(0 0 2px rgba(140, 255, 160, 0.5))"/>
+  
+  <!-- Note head -->
+  <circle cx="18" cy="15" r="1.5" 
+          fill="url(#tt-glow)"
+          filter="drop-shadow(0 0 2px rgba(140, 255, 160, 0.5))"/>
+</svg>

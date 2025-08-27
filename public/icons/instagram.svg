@@ -1,0 +1,29 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ig-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C8FFB8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9FE6A0;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="24" height="24" fill="none"/>
+  
+  <!-- Instagram camera -->
+  <rect x="6" y="6" width="12" height="12" rx="2" 
+        fill="none" 
+        stroke="url(#ig-glow)" 
+        stroke-width="2"
+        filter="drop-shadow(0 0 2px rgba(140, 255, 160, 0.5))"/>
+  
+  <!-- Camera lens -->
+  <circle cx="12" cy="12" r="3" 
+          fill="none" 
+          stroke="url(#ig-glow)" 
+          stroke-width="2"
+          filter="drop-shadow(0 0 2px rgba(140, 255, 160, 0.5))"/>
+  
+  <!-- Flash dot -->
+  <circle cx="16" cy="8" r="1" 
+          fill="url(#ig-glow)"
+          filter="drop-shadow(0 0 2px rgba(140, 255, 160, 0.5))"/>
+</svg>

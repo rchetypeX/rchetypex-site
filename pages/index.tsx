@@ -6,27 +6,27 @@ const socials = [
   {
     name: 'X',
     href: 'https://x.com/rchetypeX',
-    icon: '𝕏'
+    icon: '/icons/x.svg'
   },
   {
     name: 'Instagram',
     href: 'https://instagram.com/rchetypex',
-    icon: '📷'
+    icon: '/icons/instagram.svg'
   },
   {
     name: 'Facebook',
     href: 'https://www.facebook.com/rchetypeX/',
-    icon: '📘'
+    icon: '/icons/facebook.svg'
   },
   {
     name: 'TikTok',
     href: 'https://www.tiktok.com/@rchetypex',
-    icon: '🎵'
+    icon: '/icons/tiktok.svg'
   },
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/company/rchetypex',
-    icon: '💼'
+    icon: '/icons/linkedin.svg'
   }
 ]
 
@@ -73,17 +73,25 @@ export default function Home() {
             
             <nav className="socials" aria-label="Social media links">
               {socials.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-link"
-                  aria-label={`Visit ${social.name}`}
-                >
-                  <span className="social-icon" aria-hidden="true">{social.icon}</span>
-                  <span className="social-name">{social.name}</span>
-                </a>
+                                 <a
+                   key={social.name}
+                   href={social.href}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="social-link"
+                   aria-label={`Visit ${social.name}`}
+                 >
+                   <div className="social-icon" aria-hidden="true">
+                     <Image
+                       src={social.icon}
+                       alt=""
+                       width={24}
+                       height={24}
+                       className="icon-image"
+                     />
+                   </div>
+                   <span className="social-name">{social.name}</span>
+                 </a>
               ))}
             </nav>
           </div>
@@ -100,7 +108,7 @@ export default function Home() {
           padding: 0;
           background: #000;
           color: #C8FFB8;
-          font-family: 'VT323', monospace;
+          font-family: 'Sixtyfour', monospace;
           overflow-x: hidden;
         }
 
@@ -235,6 +243,7 @@ export default function Home() {
         }
 
         .tagline {
+          font-family: 'Sixtyfour', monospace;
           font-size: 1.25rem;
           margin: 0 0 2rem 0;
           color: #9FE6A0;
@@ -262,6 +271,7 @@ export default function Home() {
           border-radius: 8px;
           text-decoration: none;
           color: #C8FFB8;
+          font-family: 'Sixtyfour', monospace;
           transition: all 0.2s ease;
           background: rgba(0, 0, 0, 0.3);
         }
@@ -280,11 +290,18 @@ export default function Home() {
         }
 
         .social-icon {
-          font-size: 1.5rem;
           margin-bottom: 0.25rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .icon-image {
+          filter: drop-shadow(0 0 4px rgba(140, 255, 160, 0.3));
         }
 
         .social-name {
+          font-family: 'Sixtyfour', monospace;
           font-size: 0.75rem;
           color: #9FE6A0;
         }

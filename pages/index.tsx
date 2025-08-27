@@ -196,10 +196,12 @@ export default function Home() {
         .logo {
           border-radius: 8px;
           filter: 
-            drop-shadow(0 0 8px rgba(140, 255, 160, 0.5))
-            drop-shadow(0 0 16px rgba(140, 255, 160, 0.3))
-            brightness(1.2)
-            contrast(1.1);
+            drop-shadow(0 0 8px rgba(140, 255, 160, 0.8))
+            drop-shadow(0 0 16px rgba(140, 255, 160, 0.6))
+            drop-shadow(0 0 24px rgba(140, 255, 160, 0.4))
+            brightness(1.5)
+            contrast(1.2)
+            hue-rotate(0deg);
         }
 
         .brand-lockup {
@@ -271,10 +273,12 @@ export default function Home() {
 
         .icon-image {
           filter: 
-            drop-shadow(0 0 8px rgba(140, 255, 160, 0.5))
-            drop-shadow(0 0 16px rgba(140, 255, 160, 0.3))
-            brightness(1.2)
-            contrast(1.1);
+            drop-shadow(0 0 8px rgba(140, 255, 160, 0.8))
+            drop-shadow(0 0 16px rgba(140, 255, 160, 0.6))
+            drop-shadow(0 0 24px rgba(140, 255, 160, 0.4))
+            brightness(1.5)
+            contrast(1.2)
+            hue-rotate(0deg);
         }
 
         @keyframes flicker {

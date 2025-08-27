@@ -181,13 +181,19 @@ export default function Home() {
           color: #C8FFB8;
           font-family: 'Sixtyfour', monospace;
           overflow-x: hidden;
+          overflow-y: auto;
           border: none;
           outline: none;
+          width: 100vw;
+          max-width: 100vw;
         }
 
         html {
           border: none;
           outline: none;
+          overflow-x: hidden;
+          width: 100vw;
+          max-width: 100vw;
         }
 
         .crt {
@@ -200,14 +206,17 @@ export default function Home() {
           background: #000;
           border: none;
           outline: none;
+          width: 100vw;
+          max-width: 100vw;
+          overflow: hidden;
         }
 
         .scanlines {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
           background: 
             linear-gradient(
               transparent 50%,
@@ -222,14 +231,15 @@ export default function Home() {
           pointer-events: none;
           z-index: 1;
           animation: scanlines 0.1s infinite linear;
+          overflow: hidden;
         }
 
         .vignette {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
           background: radial-gradient(
             circle at center,
             transparent 0%,
@@ -238,27 +248,29 @@ export default function Home() {
           );
           pointer-events: none;
           z-index: 1;
+          overflow: hidden;
         }
 
         .noise {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
           opacity: 0.02;
           pointer-events: none;
           z-index: 1;
           animation: noise 0.2s infinite linear;
+          overflow: hidden;
         }
 
         .glow {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
           background: radial-gradient(
             circle at 50% 50%,
             rgba(140, 255, 160, 0.03) 0%,
@@ -267,26 +279,29 @@ export default function Home() {
           pointer-events: none;
           z-index: 1;
           animation: glow 4s ease-in-out infinite alternate;
+          overflow: hidden;
         }
 
         .faulty-terminal-background {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
           z-index: 0;
           opacity: 0.3;
+          overflow: hidden;
         }
 
         .faulty-terminal-placeholder {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
           z-index: 0;
           background: radial-gradient(circle at center, rgba(140, 255, 160, 0.05) 0%, transparent 50%);
+          overflow: hidden;
         }
 
         .fuzzy-text-placeholder {
@@ -664,6 +679,32 @@ export default function Home() {
           
           .tagline {
             font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+          }
+        }
+
+        /* Mobile overflow fix */
+        @media (max-width: 768px) {
+          html, body {
+            overflow-x: hidden !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+          }
+          
+          .crt {
+            overflow: hidden !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+          }
+          
+          .faulty-terminal-background,
+          .faulty-terminal-placeholder,
+          .scanlines,
+          .vignette,
+          .noise,
+          .glow {
+            overflow: hidden !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
           }
         }
       `}</style>

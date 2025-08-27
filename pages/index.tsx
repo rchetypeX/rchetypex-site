@@ -8,6 +8,11 @@ const FaultyTerminal = dynamic(() => import('../components/FaultyTerminal'), {
   loading: () => <div className="faulty-terminal-placeholder" />
 })
 
+const FuzzyText = dynamic(() => import('../components/FuzzyText'), {
+  ssr: false,
+  loading: () => <div className="fuzzy-text-placeholder">rchetypeX</div>
+})
+
 // Social links configuration
 const socials = [
   {
@@ -100,7 +105,21 @@ export default function Home() {
             </div>
             
                          <h1 className="brand-lockup">
-               rchetypeX
+               {isClient ? (
+                 <FuzzyText
+                   fontSize="2.5rem"
+                   fontWeight={400}
+                   fontFamily="'Tilt Warp', cursive"
+                   color="#9FE6A0"
+                   enableHover={true}
+                   baseIntensity={0.2}
+                   hoverIntensity={0.8}
+                 >
+                   rchetypeX
+                 </FuzzyText>
+               ) : (
+                 <span>rchetypeX</span>
+               )}
              </h1>
             
                          <p className="tagline">make progress playable<span className="cursor">_</span></p>
@@ -239,6 +258,15 @@ export default function Home() {
           background: radial-gradient(circle at center, rgba(140, 255, 160, 0.05) 0%, transparent 50%);
         }
 
+        .fuzzy-text-placeholder {
+          font-family: 'Tilt Warp', cursive;
+          font-size: 2.5rem;
+          color: #9FE6A0;
+          text-shadow: 
+            0 0 8px rgba(140, 255, 160, 0.3),
+            0 0 16px rgba(140, 255, 160, 0.1);
+        }
+
         .content {
           text-align: center;
           position: relative;
@@ -271,6 +299,13 @@ export default function Home() {
             0 0 16px rgba(140, 255, 160, 0.1);
           animation: flicker 3s infinite alternate;
           filter: contrast(1.05);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .brand-lockup canvas {
+          filter: drop-shadow(0 0 8px rgba(140, 255, 160, 0.3));
         }
 
         .bracket {

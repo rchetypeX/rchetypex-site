@@ -185,12 +185,17 @@ export default function Home() {
           outline: none;
         }
 
+        html {
+          border: none;
+          outline: none;
+        }
+
         .crt {
           min-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 1rem;
+          padding: clamp(1rem, 4vw, 2rem);
           position: relative;
           background: #000;
           border: none;
@@ -308,6 +313,8 @@ export default function Home() {
           text-align: center;
           position: relative;
           z-index: 2;
+          padding: 0 clamp(0.5rem, 3vw, 1rem);
+          max-width: 100%;
         }
 
         .logo-container {
@@ -614,6 +621,16 @@ export default function Home() {
         @media (min-width: 480px) {
           .socials {
             gap: 1rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .content {
+            padding: 0 1rem;
+          }
+          
+          .crt {
+            padding: 1.5rem 1rem;
           }
         }
       `}</style>

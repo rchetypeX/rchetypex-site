@@ -56,17 +56,36 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>&lt;@&gt;rchetypeX — make progress playable</title>
-        <meta name="description" content="&lt;@&gt;rchetypeX | make progress playable." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta property="og:title" content="&lt;@&gt;rchetypeX | make progress playable" />
-        <meta property="og:description" content="&lt;@&gt;rchetypeX | make progress playable." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/og.svg" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-      </Head>
+             <Head>
+         <title>&lt;@&gt;rchetypeX | make progress playable</title>
+         <meta name="description" content="&lt;@&gt;rchetypeX | make progress playable." />
+         <meta name="viewport" content="width=device-width, initial-scale=1" />
+         <meta name="theme-color" content="#000000" />
+         
+         {/* Open Graph Meta Tags */}
+         <meta property="og:title" content="&lt;@&gt;rchetypeX | make progress playable" />
+         <meta property="og:description" content="&lt;@&gt;rchetypeX | make progress playable." />
+         <meta property="og:type" content="website" />
+         <meta property="og:url" content="https://rchetype.xyz" />
+         <meta property="og:image" content="https://rchetype.xyz/og.webp" />
+         <meta property="og:image:width" content="1200" />
+         <meta property="og:image:height" content="630" />
+         <meta property="og:image:alt" content="rchetypeX - make progress playable" />
+         <meta property="og:site_name" content="rchetypeX" />
+         <meta property="og:locale" content="en_US" />
+         
+         {/* Twitter Meta Tags */}
+         <meta name="twitter:card" content="summary_large_image" />
+         <meta name="twitter:title" content="&lt;@&gt;rchetypeX | make progress playable" />
+         <meta name="twitter:description" content="&lt;@&gt;rchetypeX | make progress playable." />
+         <meta name="twitter:image" content="https://rchetype.xyz/og.webp" />
+         <meta name="twitter:image:alt" content="rchetypeX | make progress playable" />
+         <meta name="twitter:site" content="@rchetypeX" />
+         <meta name="twitter:creator" content="@rchetypeX" />
+         
+         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+         <link rel="canonical" href="https://rchetype.xyz" />
+       </Head>
 
       <main className="crt">
         {isClient && (

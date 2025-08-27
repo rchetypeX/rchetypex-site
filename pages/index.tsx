@@ -61,8 +61,8 @@ export default function Home() {
         <meta name="description" content="&lt;@&gt;rchetypeX | make progress playable." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta property="og:title" content="&lt;@&gt;rchetypeX — make progress playable" />
-        <meta property="og:description" content="&lt;@&gt;rchetypeX — make progress playable." />
+        <meta property="og:title" content="&lt;@&gt;rchetypeX | make progress playable" />
+        <meta property="og:description" content="&lt;@&gt;rchetypeX | make progress playable." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/og.svg" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -172,6 +172,8 @@ export default function Home() {
       <style jsx>{`
         * {
           box-sizing: border-box;
+          border: none;
+          outline: none;
         }
 
         body {
@@ -186,6 +188,7 @@ export default function Home() {
           outline: none;
           width: 100vw;
           max-width: 100vw;
+          box-sizing: border-box;
         }
 
         html {
@@ -194,6 +197,7 @@ export default function Home() {
           overflow-x: hidden;
           width: 100vw;
           max-width: 100vw;
+          box-sizing: border-box;
         }
 
         .crt {
@@ -209,6 +213,8 @@ export default function Home() {
           width: 100vw;
           max-width: 100vw;
           overflow: hidden;
+          box-sizing: border-box;
+          margin: 0;
         }
 
         .scanlines {
@@ -306,7 +312,7 @@ export default function Home() {
 
         .fuzzy-text-placeholder {
           font-family: 'Tilt Warp', cursive;
-          font-size: 2.5rem;
+          font-size: clamp(1.5rem, 6vw, 2.5rem);
           color: #9FE6A0;
           text-shadow: 
             0 0 12px rgba(140, 255, 160, 0.8),
@@ -334,10 +340,12 @@ export default function Home() {
           z-index: 2;
           padding: 0 clamp(0.5rem, 3vw, 1rem);
           max-width: 100%;
+          width: 100%;
+          box-sizing: border-box;
         }
 
         .logo-container {
-          margin-bottom: 1.5rem;
+          margin-bottom: 3rem;
         }
 
         .logo {
@@ -413,7 +421,7 @@ export default function Home() {
 
         .brand-lockup {
           font-family: 'Tilt Warp', cursive;
-          font-size: clamp(2rem, 8vw, 2.5rem);
+          font-size: clamp(1.5rem, 6vw, 2.5rem);
           margin: 0 0 1rem 0;
           letter-spacing: 0.02em;
           color: #9FE6A0;
@@ -427,6 +435,9 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: center;
+          width: 100%;
+          max-width: 100%;
+          overflow: visible;
         }
 
         .brand-lockup canvas {
@@ -688,12 +699,19 @@ export default function Home() {
             overflow-x: hidden !important;
             width: 100vw !important;
             max-width: 100vw !important;
+            border: none !important;
+            outline: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
           }
           
           .crt {
             overflow: hidden !important;
             width: 100vw !important;
             max-width: 100vw !important;
+            border: none !important;
+            outline: none !important;
+            margin: 0 !important;
           }
           
           .faulty-terminal-background,
@@ -705,6 +723,19 @@ export default function Home() {
             overflow: hidden !important;
             width: 100vw !important;
             max-width: 100vw !important;
+            border: none !important;
+            outline: none !important;
+          }
+          
+          .brand-lockup {
+            font-size: clamp(1.2rem, 5vw, 2rem) !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: visible !important;
+          }
+          
+          .fuzzy-text-placeholder {
+            font-size: clamp(1.2rem, 5vw, 2rem) !important;
           }
         }
       `}</style>

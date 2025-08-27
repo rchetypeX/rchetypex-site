@@ -48,6 +48,8 @@ export default function Home() {
       <main className="crt">
         <div className="scanlines"></div>
         <div className="vignette"></div>
+        <div className="noise"></div>
+        <div className="glow"></div>
         
         <div className="frame">
           <div className="content">
@@ -118,13 +120,20 @@ export default function Home() {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(
-            transparent 50%,
-            rgba(140, 255, 160, 0.02) 50%
-          );
-          background-size: 100% 4px;
+          background: 
+            linear-gradient(
+              transparent 50%,
+              rgba(140, 255, 160, 0.02) 50%
+            ),
+            linear-gradient(
+              90deg,
+              transparent 50%,
+              rgba(140, 255, 160, 0.01) 50%
+            );
+          background-size: 100% 4px, 4px 100%;
           pointer-events: none;
           z-index: 1;
+          animation: scanlines 0.1s infinite linear;
         }
 
         .vignette {
@@ -143,8 +152,37 @@ export default function Home() {
           z-index: 1;
         }
 
+        .noise {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+          opacity: 0.02;
+          pointer-events: none;
+          z-index: 1;
+          animation: noise 0.2s infinite linear;
+        }
+
+        .glow {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(
+            circle at 50% 50%,
+            rgba(140, 255, 160, 0.03) 0%,
+            transparent 50%
+          );
+          pointer-events: none;
+          z-index: 1;
+          animation: glow 4s ease-in-out infinite alternate;
+        }
+
         .frame {
-          background: rgba(0, 0, 0, 0.8);
+          background: rgba(0, 0, 0, 0.9);
           border: 2px solid rgba(140, 255, 160, 0.22);
           border-radius: 12px;
           padding: 2rem;
@@ -154,7 +192,10 @@ export default function Home() {
           z-index: 2;
           box-shadow: 
             0 0 20px rgba(140, 255, 160, 0.1),
-            inset 0 0 20px rgba(140, 255, 160, 0.05);
+            inset 0 0 20px rgba(140, 255, 160, 0.05),
+            0 0 40px rgba(140, 255, 160, 0.05);
+          backdrop-filter: blur(1px);
+          animation: frameGlow 6s ease-in-out infinite alternate;
         }
 
         .content {
@@ -175,8 +216,12 @@ export default function Home() {
           font-size: 2.5rem;
           margin: 0 0 1rem 0;
           letter-spacing: 0.02em;
-          text-shadow: 0 0 10px rgba(140, 255, 160, 0.5);
+          text-shadow: 
+            0 0 10px rgba(140, 255, 160, 0.5),
+            0 0 20px rgba(140, 255, 160, 0.3),
+            0 0 30px rgba(140, 255, 160, 0.1);
           animation: flicker 3s infinite alternate;
+          filter: contrast(1.1) brightness(1.1);
         }
 
         .bracket {
@@ -194,7 +239,10 @@ export default function Home() {
           margin: 0 0 2rem 0;
           color: #9FE6A0;
           letter-spacing: 0.02em;
-          text-shadow: 0 0 8px rgba(140, 255, 160, 0.3);
+          text-shadow: 
+            0 0 8px rgba(140, 255, 160, 0.3),
+            0 0 16px rgba(140, 255, 160, 0.1);
+          filter: contrast(1.05);
         }
 
         .socials {
@@ -250,8 +298,88 @@ export default function Home() {
           }
         }
 
+        @keyframes noise {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          10% {
+            transform: translate(-5%, -5%);
+          }
+          20% {
+            transform: translate(-10%, 5%);
+          }
+          30% {
+            transform: translate(5%, -10%);
+          }
+          40% {
+            transform: translate(-5%, 15%);
+          }
+          50% {
+            transform: translate(-10%, 5%);
+          }
+          60% {
+            transform: translate(15%, 0%);
+          }
+          70% {
+            transform: translate(0%, 10%);
+          }
+          80% {
+            transform: translate(-15%, 0%);
+          }
+          90% {
+            transform: translate(10%, 5%);
+          }
+        }
+
+        @keyframes glow {
+          0% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+          100% {
+            opacity: 0.6;
+            transform: scale(1.1);
+          }
+        }
+
+        @keyframes frameGlow {
+          0% {
+            box-shadow: 
+              0 0 20px rgba(140, 255, 160, 0.1),
+              inset 0 0 20px rgba(140, 255, 160, 0.05),
+              0 0 40px rgba(140, 255, 160, 0.05);
+          }
+          100% {
+            box-shadow: 
+              0 0 30px rgba(140, 255, 160, 0.15),
+              inset 0 0 30px rgba(140, 255, 160, 0.08),
+              0 0 60px rgba(140, 255, 160, 0.08);
+          }
+        }
+
+        @keyframes scanlines {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(4px);
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .brand-lockup {
+            animation: none;
+          }
+          .noise {
+            animation: none;
+          }
+          .glow {
+            animation: none;
+          }
+          .frame {
+            animation: none;
+          }
+          .scanlines {
             animation: none;
           }
         }

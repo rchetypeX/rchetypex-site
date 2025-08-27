@@ -13,6 +13,11 @@ const FuzzyText = dynamic(() => import('../components/FuzzyText'), {
   loading: () => <div className="fuzzy-text-placeholder">rchetypeX</div>
 })
 
+const TextType = dynamic(() => import('../components/TextType'), {
+  ssr: false,
+  loading: () => <div className="text-type-placeholder">make progress playable_</div>
+})
+
 // Social links configuration
 const socials = [
   {
@@ -122,7 +127,22 @@ export default function Home() {
                )}
              </h1>
             
-                         <p className="tagline">make progress playable<span className="cursor">_</span></p>
+                         <p className="tagline">
+               {isClient ? (
+                 <TextType
+                   text="make progress playable_"
+                   typingSpeed={75}
+                   pauseDuration={3000}
+                   showCursor={true}
+                   cursorCharacter="_"
+                   cursorClassName="tagline-cursor"
+                   textColors={["#9FE6A0"]}
+                   loop={false}
+                 />
+               ) : (
+                 <span>make progress playable_</span>
+               )}
+             </p>
             
                          <nav className="socials" aria-label="Social media links">
                {socials.map((social) => (
@@ -267,6 +287,15 @@ export default function Home() {
             0 0 16px rgba(140, 255, 160, 0.1);
         }
 
+        .text-type-placeholder {
+          font-family: 'Sixtyfour', monospace;
+          font-size: 1.25rem;
+          color: #9FE6A0;
+          text-shadow: 
+            0 0 8px rgba(140, 255, 160, 0.3),
+            0 0 16px rgba(140, 255, 160, 0.1);
+        }
+
         .content {
           text-align: center;
           position: relative;
@@ -328,6 +357,29 @@ export default function Home() {
             0 0 8px rgba(140, 255, 160, 0.3),
             0 0 16px rgba(140, 255, 160, 0.1);
           filter: contrast(1.05);
+        }
+
+        .text-type {
+          display: inline-block;
+          white-space: pre-wrap;
+        }
+
+        .text-type__cursor {
+          margin-left: 0.25rem;
+          display: inline-block;
+          opacity: 1;
+          color: #9FE6A0;
+          text-shadow: 
+            0 0 8px rgba(140, 255, 160, 0.3),
+            0 0 16px rgba(140, 255, 160, 0.1);
+        }
+
+        .text-type__cursor--hidden {
+          display: none;
+        }
+
+        .tagline-cursor {
+          animation: blink 1s infinite;
         }
 
         .cursor {

@@ -1,5 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+
+const FaultyTerminal = dynamic(() => import('../components/FaultyTerminal'), {
+  ssr: false,
+  loading: () => <div className="faulty-terminal-placeholder" />
+})
 
 // Social links configuration
 const socials = [
@@ -31,6 +38,12 @@ const socials = [
 ]
 
 export default function Home() {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <>
       <Head>
@@ -46,12 +59,35 @@ export default function Home() {
       </Head>
 
       <main className="crt">
+        {isClient && (
+          <div className="faulty-terminal-background">
+            <FaultyTerminal
+              scale={1.5}
+              gridMul={[2, 1]}
+              digitSize={1.2}
+              timeScale={0.5}
+              pause={false}
+              scanlineIntensity={0.8}
+              glitchAmount={0.3}
+              flickerAmount={0.5}
+              noiseAmp={0.2}
+              chromaticAberration={0}
+              dither={0}
+              curvature={0.1}
+              tint="#9FE6A0"
+              mouseReact={true}
+              mouseStrength={0.3}
+              pageLoadAnimation={true}
+              brightness={0.6}
+            />
+          </div>
+        )}
         <div className="scanlines"></div>
         <div className="vignette"></div>
         <div className="noise"></div>
         <div className="glow"></div>
         
-                 <div className="content">
+        <div className="content">
             <div className="logo-container">
               <Image
                 src="/logo.svg"
@@ -181,6 +217,26 @@ export default function Home() {
           pointer-events: none;
           z-index: 1;
           animation: glow 4s ease-in-out infinite alternate;
+        }
+
+        .faulty-terminal-background {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          opacity: 0.3;
+        }
+
+        .faulty-terminal-placeholder {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          background: radial-gradient(circle at center, rgba(140, 255, 160, 0.05) 0%, transparent 50%);
         }
 
         .content {

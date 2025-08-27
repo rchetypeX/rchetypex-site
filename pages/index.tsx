@@ -106,7 +106,7 @@ export default function Home() {
                 height={256}
                 priority
                 className="logo"
-                style={{ width: 'clamp(128px, 25vw, 256px)', height: 'auto' }}
+                style={{ width: 'clamp(256px, 25vw, 512px)', height: 'auto' }}
               />
             </div>
             
@@ -421,7 +421,7 @@ export default function Home() {
 
         .tagline {
           font-family: 'Sixtyfour', monospace;
-          font-size: clamp(0.875rem, 4vw, 1.25rem);
+          font-size: clamp(0.75rem, 3.5vw, 1.25rem);
           margin: 0 0 2rem 0;
           color: #9FE6A0;
           letter-spacing: 0.02em;
@@ -626,11 +626,25 @@ export default function Home() {
 
         @media (max-width: 480px) {
           .content {
-            padding: 0 1rem;
+            padding: 0 1.5rem;
           }
           
           .crt {
             padding: 1.5rem 1rem;
+          }
+          
+          .tagline {
+            font-size: clamp(0.7rem, 3vw, 0.875rem);
+          }
+        }
+
+        @media (max-width: 360px) {
+          .content {
+            padding: 0 2rem;
+          }
+          
+          .tagline {
+            font-size: clamp(0.65rem, 2.5vw, 0.75rem);
           }
         }
       `}</style>

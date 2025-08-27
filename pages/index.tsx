@@ -195,7 +195,11 @@ export default function Home() {
 
         .logo {
           border-radius: 8px;
-          filter: drop-shadow(0 0 8px rgba(140, 255, 160, 0.3));
+          filter: 
+            drop-shadow(0 0 8px rgba(140, 255, 160, 0.5))
+            drop-shadow(0 0 16px rgba(140, 255, 160, 0.3))
+            brightness(1.2)
+            contrast(1.1);
         }
 
         .brand-lockup {
@@ -203,12 +207,12 @@ export default function Home() {
           font-size: 2.5rem;
           margin: 0 0 1rem 0;
           letter-spacing: 0.02em;
+          color: #9FE6A0;
           text-shadow: 
-            0 0 10px rgba(140, 255, 160, 0.5),
-            0 0 20px rgba(140, 255, 160, 0.3),
-            0 0 30px rgba(140, 255, 160, 0.1);
+            0 0 8px rgba(140, 255, 160, 0.3),
+            0 0 16px rgba(140, 255, 160, 0.1);
           animation: flicker 3s infinite alternate;
-          filter: contrast(1.1) brightness(1.1);
+          filter: contrast(1.05);
         }
 
         .bracket {
@@ -266,7 +270,11 @@ export default function Home() {
         }
 
         .icon-image {
-          filter: drop-shadow(0 0 8px rgba(140, 255, 160, 0.5));
+          filter: 
+            drop-shadow(0 0 8px rgba(140, 255, 160, 0.5))
+            drop-shadow(0 0 16px rgba(140, 255, 160, 0.3))
+            brightness(1.2)
+            contrast(1.1);
         }
 
         @keyframes flicker {

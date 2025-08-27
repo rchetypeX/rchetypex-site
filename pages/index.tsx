@@ -186,8 +186,8 @@ export default function Home() {
           overflow-y: auto;
           border: none;
           outline: none;
-          width: 100vw;
-          max-width: 100vw;
+          width: 100%;
+          max-width: 100%;
           box-sizing: border-box;
         }
 
@@ -195,8 +195,8 @@ export default function Home() {
           border: none;
           outline: none;
           overflow-x: hidden;
-          width: 100vw;
-          max-width: 100vw;
+          width: 100%;
+          max-width: 100%;
           box-sizing: border-box;
         }
 
@@ -210,8 +210,8 @@ export default function Home() {
           background: #000;
           border: none;
           outline: none;
-          width: 100vw;
-          max-width: 100vw;
+          width: 100%;
+          max-width: 100%;
           overflow: hidden;
           box-sizing: border-box;
           margin: 0;
@@ -221,8 +221,8 @@ export default function Home() {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100vw;
-          height: 100vh;
+          width: 100%;
+          height: 100%;
           background: 
             linear-gradient(
               transparent 50%,
@@ -244,8 +244,8 @@ export default function Home() {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100vw;
-          height: 100vh;
+          width: 100%;
+          height: 100%;
           background: radial-gradient(
             circle at center,
             transparent 0%,
@@ -261,8 +261,8 @@ export default function Home() {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100vw;
-          height: 100vh;
+          width: 100%;
+          height: 100%;
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
           opacity: 0.02;
           pointer-events: none;
@@ -275,8 +275,8 @@ export default function Home() {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100vw;
-          height: 100vh;
+          width: 100%;
+          height: 100%;
           background: radial-gradient(
             circle at 50% 50%,
             rgba(140, 255, 160, 0.03) 0%,
@@ -292,8 +292,8 @@ export default function Home() {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100vw;
-          height: 100vh;
+          width: 100%;
+          height: 100%;
           z-index: 0;
           opacity: 0.3;
           overflow: hidden;
@@ -303,8 +303,8 @@ export default function Home() {
           position: fixed;
           top: 0;
           left: 0;
-          width: 100vw;
-          height: 100vh;
+          width: 100%;
+          height: 100%;
           z-index: 0;
           background: radial-gradient(circle at center, rgba(140, 255, 160, 0.05) 0%, transparent 50%);
           overflow: hidden;
@@ -342,6 +342,7 @@ export default function Home() {
           max-width: 100%;
           width: 100%;
           box-sizing: border-box;
+          overflow: hidden;
         }
 
         .logo-container {
@@ -693,12 +694,26 @@ export default function Home() {
           }
         }
 
-        /* Mobile overflow fix */
+        /* Comprehensive responsive design */
+        @media (max-width: 1200px) {
+          .logo {
+            width: clamp(200px, 20vw, 400px) !important;
+          }
+          
+          .brand-lockup {
+            font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+          }
+          
+          .fuzzy-text-placeholder {
+            font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+          }
+        }
+
         @media (max-width: 768px) {
           html, body {
             overflow-x: hidden !important;
-            width: 100vw !important;
-            max-width: 100vw !important;
+            width: 100% !important;
+            max-width: 100% !important;
             border: none !important;
             outline: none !important;
             margin: 0 !important;
@@ -707,8 +722,8 @@ export default function Home() {
           
           .crt {
             overflow: hidden !important;
-            width: 100vw !important;
-            max-width: 100vw !important;
+            width: 100% !important;
+            max-width: 100% !important;
             border: none !important;
             outline: none !important;
             margin: 0 !important;
@@ -721,8 +736,8 @@ export default function Home() {
           .noise,
           .glow {
             overflow: hidden !important;
-            width: 100vw !important;
-            max-width: 100vw !important;
+            width: 100% !important;
+            max-width: 100% !important;
             border: none !important;
             outline: none !important;
           }

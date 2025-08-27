@@ -51,8 +51,7 @@ export default function Home() {
         <div className="noise"></div>
         <div className="glow"></div>
         
-        <div className="frame">
-          <div className="content">
+                 <div className="content">
             <div className="logo-container">
               <Image
                 src="/logo.svg"
@@ -64,16 +63,15 @@ export default function Home() {
               />
             </div>
             
-            <h1 className="brand-lockup">
-              <span className="bracket">&lt;@&gt;</span>
-              <span className="name">rchetypeX</span>
-            </h1>
+                         <h1 className="brand-lockup">
+               rchetypeX
+             </h1>
             
-            <p className="tagline">make progress playable.</p>
+                         <p className="tagline">make progress playable<span className="cursor">_</span></p>
             
-            <nav className="socials" aria-label="Social media links">
-              {socials.map((social) => (
-                                 <a
+                         <nav className="socials" aria-label="Social media links">
+               {socials.map((social) => (
+                 <a
                    key={social.name}
                    href={social.href}
                    target="_blank"
@@ -81,22 +79,18 @@ export default function Home() {
                    className="social-link"
                    aria-label={`Visit ${social.name}`}
                  >
-                   <div className="social-icon" aria-hidden="true">
-                     <Image
-                       src={social.icon}
-                       alt=""
-                       width={24}
-                       height={24}
-                       className="icon-image"
-                     />
-                   </div>
-                   <span className="social-name">{social.name}</span>
+                   <Image
+                     src={social.icon}
+                     alt=""
+                     width={32}
+                     height={32}
+                     className="icon-image"
+                   />
                  </a>
-              ))}
-            </nav>
-          </div>
-        </div>
-      </main>
+               ))}
+             </nav>
+           </div>
+         </main>
 
       <style jsx>{`
         * {
@@ -189,25 +183,10 @@ export default function Home() {
           animation: glow 4s ease-in-out infinite alternate;
         }
 
-        .frame {
-          background: rgba(0, 0, 0, 0.9);
-          border: 2px solid rgba(140, 255, 160, 0.22);
-          border-radius: 12px;
-          padding: 2rem;
-          max-width: 480px;
-          width: 100%;
-          position: relative;
-          z-index: 2;
-          box-shadow: 
-            0 0 20px rgba(140, 255, 160, 0.1),
-            inset 0 0 20px rgba(140, 255, 160, 0.05),
-            0 0 40px rgba(140, 255, 160, 0.05);
-          backdrop-filter: blur(1px);
-          animation: frameGlow 6s ease-in-out infinite alternate;
-        }
-
         .content {
           text-align: center;
+          position: relative;
+          z-index: 2;
         }
 
         .logo-container {
@@ -254,6 +233,10 @@ export default function Home() {
           filter: contrast(1.05);
         }
 
+        .cursor {
+          animation: blink 1s infinite;
+        }
+
         .socials {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -264,24 +247,17 @@ export default function Home() {
 
         .social-link {
           display: flex;
-          flex-direction: column;
           align-items: center;
-          padding: 0.75rem 0.5rem;
-          border: 1px solid rgba(140, 255, 160, 0.22);
-          border-radius: 8px;
+          justify-content: center;
+          padding: 0.5rem;
           text-decoration: none;
           color: #C8FFB8;
-          font-family: 'Sixtyfour', monospace;
           transition: all 0.2s ease;
-          background: rgba(0, 0, 0, 0.3);
         }
 
         .social-link:hover,
         .social-link:focus {
-          border-color: rgba(140, 255, 160, 0.42);
-          background: rgba(140, 255, 160, 0.05);
           transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(140, 255, 160, 0.2);
         }
 
         .social-link:focus {
@@ -289,21 +265,8 @@ export default function Home() {
           outline-offset: 2px;
         }
 
-        .social-icon {
-          margin-bottom: 0.25rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
         .icon-image {
-          filter: drop-shadow(0 0 4px rgba(140, 255, 160, 0.3));
-        }
-
-        .social-name {
-          font-family: 'Sixtyfour', monospace;
-          font-size: 0.75rem;
-          color: #9FE6A0;
+          filter: drop-shadow(0 0 8px rgba(140, 255, 160, 0.5));
         }
 
         @keyframes flicker {
@@ -359,20 +322,7 @@ export default function Home() {
           }
         }
 
-        @keyframes frameGlow {
-          0% {
-            box-shadow: 
-              0 0 20px rgba(140, 255, 160, 0.1),
-              inset 0 0 20px rgba(140, 255, 160, 0.05),
-              0 0 40px rgba(140, 255, 160, 0.05);
-          }
-          100% {
-            box-shadow: 
-              0 0 30px rgba(140, 255, 160, 0.15),
-              inset 0 0 30px rgba(140, 255, 160, 0.08),
-              0 0 60px rgba(140, 255, 160, 0.08);
-          }
-        }
+
 
         @keyframes scanlines {
           0% {
@@ -380,6 +330,15 @@ export default function Home() {
           }
           100% {
             transform: translateY(4px);
+          }
+        }
+
+        @keyframes blink {
+          0%, 50% {
+            opacity: 1;
+          }
+          51%, 100% {
+            opacity: 0;
           }
         }
 
@@ -393,10 +352,10 @@ export default function Home() {
           .glow {
             animation: none;
           }
-          .frame {
+          .scanlines {
             animation: none;
           }
-          .scanlines {
+          .cursor {
             animation: none;
           }
         }
@@ -405,10 +364,6 @@ export default function Home() {
           .socials {
             grid-template-columns: repeat(5, 1fr);
             max-width: none;
-          }
-          
-          .frame {
-            padding: 3rem;
           }
           
           .brand-lockup {
@@ -421,11 +376,6 @@ export default function Home() {
         }
 
         @media (min-width: 768px) {
-          .frame {
-            padding: 4rem;
-            max-width: 600px;
-          }
-          
           .brand-lockup {
             font-size: 3.5rem;
           }

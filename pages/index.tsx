@@ -106,6 +106,7 @@ export default function Home() {
                 height={256}
                 priority
                 className="logo"
+                style={{ width: 'clamp(128px, 25vw, 256px)', height: 'auto' }}
               />
             </div>
             
@@ -154,13 +155,14 @@ export default function Home() {
                    className="social-link"
                    aria-label={`Visit ${social.name}`}
                  >
-                   <Image
-                     src={social.icon}
-                     alt=""
-                     width={32}
-                     height={32}
-                     className="icon-image"
-                   />
+                                       <Image
+                      src={social.icon}
+                      alt=""
+                      width={32}
+                      height={32}
+                      className="icon-image"
+                      style={{ width: 'clamp(24px, 6vw, 32px)', height: 'auto' }}
+                    />
                  </a>
                ))}
              </nav>
@@ -291,6 +293,8 @@ export default function Home() {
             0 0 16px rgba(140, 255, 160, 0.1);
         }
 
+
+
         .text-type-placeholder {
           font-family: 'Sixtyfour', monospace;
           font-size: 1.25rem;
@@ -319,8 +323,10 @@ export default function Home() {
             brightness(1.5)
             contrast(1.2)
             hue-rotate(0deg);
-          animation: logoGlow 3s ease-in-out infinite alternate;
+          animation: logoGlow 3s ease-in-out infinite alternate, logoFuzzy 0.1s infinite linear;
         }
+
+
 
         @keyframes logoGlow {
           0% {
@@ -343,9 +349,42 @@ export default function Home() {
           }
         }
 
+        @keyframes logoFuzzy {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          10% {
+            transform: translate(-0.5px, -0.5px);
+          }
+          20% {
+            transform: translate(-1px, 0.5px);
+          }
+          30% {
+            transform: translate(0.5px, -1px);
+          }
+          40% {
+            transform: translate(-0.5px, 1px);
+          }
+          50% {
+            transform: translate(-1px, 0.5px);
+          }
+          60% {
+            transform: translate(1px, 0px);
+          }
+          70% {
+            transform: translate(0px, 1px);
+          }
+          80% {
+            transform: translate(-1px, 0px);
+          }
+          90% {
+            transform: translate(1px, 0.5px);
+          }
+        }
+
         .brand-lockup {
           font-family: 'Tilt Warp', cursive;
-          font-size: 2.5rem;
+          font-size: clamp(2rem, 8vw, 2.5rem);
           margin: 0 0 1rem 0;
           letter-spacing: 0.02em;
           color: #9FE6A0;
@@ -375,7 +414,7 @@ export default function Home() {
 
         .tagline {
           font-family: 'Sixtyfour', monospace;
-          font-size: 1.25rem;
+          font-size: clamp(0.875rem, 4vw, 1.25rem);
           margin: 0 0 2rem 0;
           color: #9FE6A0;
           letter-spacing: 0.02em;
@@ -384,7 +423,7 @@ export default function Home() {
             0 0 16px rgba(140, 255, 160, 0.1);
           filter: contrast(1.05);
           white-space: nowrap;
-          overflow: hidden;
+          overflow: visible;
         }
 
         .text-type {
@@ -415,10 +454,11 @@ export default function Home() {
         }
 
         .socials {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1rem;
-          max-width: 300px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: clamp(0.5rem, 2vw, 1rem);
+          flex-wrap: nowrap;
           margin: 0 auto;
         }
 
@@ -573,22 +613,7 @@ export default function Home() {
 
         @media (min-width: 480px) {
           .socials {
-            grid-template-columns: repeat(5, 1fr);
-            max-width: 400px;
-          }
-          
-          .brand-lockup {
-            font-size: 3rem;
-          }
-          
-          .tagline {
-            font-size: 1.5rem;
-          }
-        }
-
-        @media (min-width: 768px) {
-          .brand-lockup {
-            font-size: 3.5rem;
+            gap: 1rem;
           }
         }
       `}</style>

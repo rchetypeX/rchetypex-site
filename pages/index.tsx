@@ -294,8 +294,10 @@ export default function Home() {
           font-size: 2.5rem;
           color: #9FE6A0;
           text-shadow: 
-            0 0 8px rgba(140, 255, 160, 0.3),
-            0 0 16px rgba(140, 255, 160, 0.1);
+            0 0 12px rgba(140, 255, 160, 0.8),
+            0 0 20px rgba(140, 255, 160, 0.6),
+            0 0 32px rgba(140, 255, 160, 0.4),
+            0 0 48px rgba(140, 255, 160, 0.2);
         }
 
 
@@ -305,8 +307,10 @@ export default function Home() {
           font-size: 1.25rem;
           color: #9FE6A0;
           text-shadow: 
-            0 0 8px rgba(140, 255, 160, 0.3),
-            0 0 16px rgba(140, 255, 160, 0.1);
+            0 0 12px rgba(140, 255, 160, 0.8),
+            0 0 20px rgba(140, 255, 160, 0.6),
+            0 0 32px rgba(140, 255, 160, 0.4),
+            0 0 48px rgba(140, 255, 160, 0.2);
         }
 
         .content {
@@ -324,11 +328,12 @@ export default function Home() {
         .logo {
           border-radius: 8px;
           filter: 
-            drop-shadow(0 0 8px rgba(140, 255, 160, 0.8))
-            drop-shadow(0 0 16px rgba(140, 255, 160, 0.6))
-            drop-shadow(0 0 24px rgba(140, 255, 160, 0.4))
-            brightness(1.5)
-            contrast(1.2)
+            drop-shadow(0 0 12px rgba(140, 255, 160, 1))
+            drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
+            drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
+            drop-shadow(0 0 48px rgba(140, 255, 160, 0.4))
+            brightness(1.8)
+            contrast(1.3)
             hue-rotate(0deg);
           animation: logoGlow 3s ease-in-out infinite alternate, logoFuzzy 0.1s infinite linear;
         }
@@ -338,20 +343,22 @@ export default function Home() {
         @keyframes logoGlow {
           0% {
             filter: 
-              drop-shadow(0 0 8px rgba(140, 255, 160, 0.8))
-              drop-shadow(0 0 16px rgba(140, 255, 160, 0.6))
-              drop-shadow(0 0 24px rgba(140, 255, 160, 0.4))
-              brightness(1.5)
-              contrast(1.2)
+              drop-shadow(0 0 12px rgba(140, 255, 160, 1))
+              drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
+              drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
+              drop-shadow(0 0 48px rgba(140, 255, 160, 0.4))
+              brightness(1.8)
+              contrast(1.3)
               hue-rotate(0deg);
           }
           100% {
             filter: 
-              drop-shadow(0 0 12px rgba(140, 255, 160, 1))
-              drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
-              drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
-              brightness(1.8)
-              contrast(1.3)
+              drop-shadow(0 0 16px rgba(140, 255, 160, 1))
+              drop-shadow(0 0 28px rgba(140, 255, 160, 0.9))
+              drop-shadow(0 0 40px rgba(140, 255, 160, 0.7))
+              drop-shadow(0 0 56px rgba(140, 255, 160, 0.5))
+              brightness(2.2)
+              contrast(1.4)
               hue-rotate(0deg);
           }
         }
@@ -396,8 +403,10 @@ export default function Home() {
           letter-spacing: 0.02em;
           color: #9FE6A0;
           text-shadow: 
-            0 0 8px rgba(140, 255, 160, 0.3),
-            0 0 16px rgba(140, 255, 160, 0.1);
+            0 0 12px rgba(140, 255, 160, 0.8),
+            0 0 20px rgba(140, 255, 160, 0.6),
+            0 0 32px rgba(140, 255, 160, 0.4),
+            0 0 48px rgba(140, 255, 160, 0.2);
           animation: flicker 3s infinite alternate;
           filter: contrast(1.05);
           display: flex;
@@ -406,7 +415,10 @@ export default function Home() {
         }
 
         .brand-lockup canvas {
-          filter: drop-shadow(0 0 8px rgba(140, 255, 160, 0.3));
+          filter: 
+            drop-shadow(0 0 12px rgba(140, 255, 160, 0.8))
+            drop-shadow(0 0 20px rgba(140, 255, 160, 0.6))
+            drop-shadow(0 0 32px rgba(140, 255, 160, 0.4));
         }
 
         .bracket {
@@ -426,8 +438,10 @@ export default function Home() {
           color: #9FE6A0;
           letter-spacing: 0.02em;
           text-shadow: 
-            0 0 8px rgba(140, 255, 160, 0.3),
-            0 0 16px rgba(140, 255, 160, 0.1);
+            0 0 12px rgba(140, 255, 160, 0.8),
+            0 0 20px rgba(140, 255, 160, 0.6),
+            0 0 32px rgba(140, 255, 160, 0.4),
+            0 0 48px rgba(140, 255, 160, 0.2);
           filter: contrast(1.05);
           white-space: nowrap;
           overflow: visible;
@@ -444,8 +458,10 @@ export default function Home() {
           opacity: 1;
           color: #9FE6A0;
           text-shadow: 
-            0 0 8px rgba(140, 255, 160, 0.3),
-            0 0 16px rgba(140, 255, 160, 0.1);
+            0 0 12px rgba(140, 255, 160, 0.8),
+            0 0 20px rgba(140, 255, 160, 0.6),
+            0 0 32px rgba(140, 255, 160, 0.4),
+            0 0 48px rgba(140, 255, 160, 0.2);
         }
 
         .text-type__cursor--hidden {
@@ -491,11 +507,12 @@ export default function Home() {
 
         .icon-image {
           filter: 
-            drop-shadow(0 0 8px rgba(140, 255, 160, 0.8))
-            drop-shadow(0 0 16px rgba(140, 255, 160, 0.6))
-            drop-shadow(0 0 24px rgba(140, 255, 160, 0.4))
-            brightness(1.5)
-            contrast(1.2)
+            drop-shadow(0 0 12px rgba(140, 255, 160, 1))
+            drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
+            drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
+            drop-shadow(0 0 48px rgba(140, 255, 160, 0.4))
+            brightness(1.8)
+            contrast(1.3)
             hue-rotate(0deg);
           animation: iconGlow 3s ease-in-out infinite alternate;
         }
@@ -503,20 +520,22 @@ export default function Home() {
         @keyframes iconGlow {
           0% {
             filter: 
-              drop-shadow(0 0 8px rgba(140, 255, 160, 0.8))
-              drop-shadow(0 0 16px rgba(140, 255, 160, 0.6))
-              drop-shadow(0 0 24px rgba(140, 255, 160, 0.4))
-              brightness(1.5)
-              contrast(1.2)
+              drop-shadow(0 0 12px rgba(140, 255, 160, 1))
+              drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
+              drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
+              drop-shadow(0 0 48px rgba(140, 255, 160, 0.4))
+              brightness(1.8)
+              contrast(1.3)
               hue-rotate(0deg);
           }
           100% {
             filter: 
-              drop-shadow(0 0 12px rgba(140, 255, 160, 1))
-              drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
-              drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
-              brightness(1.8)
-              contrast(1.3)
+              drop-shadow(0 0 16px rgba(140, 255, 160, 1))
+              drop-shadow(0 0 28px rgba(140, 255, 160, 0.9))
+              drop-shadow(0 0 40px rgba(140, 255, 160, 0.7))
+              drop-shadow(0 0 56px rgba(140, 255, 160, 0.5))
+              brightness(2.2)
+              contrast(1.4)
               hue-rotate(0deg);
           }
         }

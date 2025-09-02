@@ -185,6 +185,26 @@ export default function Home() {
                  </a>
                ))}
              </nav>
+
+                            <div className="dtd-container">
+                 <a
+                   href="https://dtd.rchetype.xyz"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="dtd-link"
+                   aria-label="Visit DTD"
+                 >
+                   <Image
+                     src="/DTD.png"
+                     alt="DTD"
+                     width={128}
+                     height={128}
+                     priority
+                     className="dtd-image"
+                     style={{ width: 'clamp(128px, 12vw, 256px)', height: 'auto' }}
+                   />
+                 </a>
+               </div>
            </div>
          </main>
 
@@ -551,6 +571,101 @@ export default function Home() {
           outline-offset: 2px;
         }
 
+        .dtd-container {
+          margin-top: 2rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .dtd-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          color: #C8FFB8;
+          transition: all 0.2s ease;
+        }
+
+        .dtd-link:hover,
+        .dtd-link:focus {
+          transform: translateY(-2px);
+        }
+
+        .dtd-link:focus {
+          outline: 2px solid rgba(140, 255, 160, 0.6);
+          outline-offset: 2px;
+        }
+
+        .dtd-image {
+          border-radius: 8px;
+          filter: 
+            drop-shadow(0 0 12px rgba(140, 255, 160, 1))
+            drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
+            drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
+            drop-shadow(0 0 48px rgba(140, 255, 160, 0.4))
+            brightness(1.8)
+            contrast(1.3)
+            hue-rotate(0deg);
+          animation: dtdGlow 3s ease-in-out infinite alternate, dtdFuzzy 0.1s infinite linear;
+        }
+
+        @keyframes dtdGlow {
+          0% {
+            filter: 
+              drop-shadow(0 0 12px rgba(140, 255, 160, 1))
+              drop-shadow(0 0 20px rgba(140, 255, 160, 0.8))
+              drop-shadow(0 0 32px rgba(140, 255, 160, 0.6))
+              drop-shadow(0 0 48px rgba(140, 255, 160, 0.4))
+              brightness(1.8)
+              contrast(1.3)
+              hue-rotate(0deg);
+          }
+          100% {
+            filter: 
+              drop-shadow(0 0 16px rgba(140, 255, 160, 1))
+              drop-shadow(0 0 28px rgba(140, 255, 160, 0.9))
+              drop-shadow(0 0 40px rgba(140, 255, 160, 0.7))
+              drop-shadow(0 0 56px rgba(140, 255, 160, 0.5))
+              brightness(2.2)
+              contrast(1.4)
+              hue-rotate(0deg);
+          }
+        }
+
+        @keyframes dtdFuzzy {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          10% {
+            transform: translate(-0.5px, -0.5px);
+          }
+          20% {
+            transform: translate(-1px, 0.5px);
+          }
+          30% {
+            transform: translate(0.5px, -1px);
+          }
+          40% {
+            transform: translate(-0.5px, 1px);
+          }
+          50% {
+            transform: translate(-1px, 0.5px);
+          }
+          60% {
+            transform: translate(1px, 0px);
+          }
+          70% {
+            transform: translate(0px, 1px);
+          }
+          80% {
+            transform: translate(-1px, 0px);
+          }
+          90% {
+            transform: translate(1px, 0.5px);
+          }
+        }
+
         .icon-image {
           filter: 
             drop-shadow(0 0 12px rgba(140, 255, 160, 1))
@@ -681,6 +796,9 @@ export default function Home() {
           .icon-image {
             animation: none;
           }
+          .dtd-image {
+            animation: none;
+          }
         }
 
         @media (min-width: 480px) {
@@ -725,6 +843,10 @@ export default function Home() {
           
           .fuzzy-text-placeholder {
             font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+          }
+          
+          .dtd-image {
+            width: clamp(100px, 10vw, 200px) !important;
           }
         }
 
